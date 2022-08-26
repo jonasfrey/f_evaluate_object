@@ -1,7 +1,7 @@
 # checkout the test.js
 
 ```javascript
-import { f_o_evaluated } from "./f_o_evaluated.module.js"
+import { f_evaluate_object } from "./f_evaluate_object.module.js"
 
 var object = {
     n_num: 123,
@@ -17,7 +17,7 @@ var object = {
 
 var object_original = Object.assign({}, object)
 
-f_o_evaluated(object, object);
+f_evaluate_object(object, object);
 
 console.log(object_original)
 // > {n_num: 123, s_name: 'fritz', s_name_and_num: '${(n_num*2) + s_name.toUpperCase()}', n_num_suqared: '${f_n_squared(n_num)}', f_n_squared: ƒ, …}

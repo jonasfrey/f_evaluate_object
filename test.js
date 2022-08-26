@@ -1,4 +1,4 @@
-import { f_o_evaluated } from "./f_o_evaluated.module.js"
+import { f_evaluate_object } from "./f_evaluate_object.module.js"
 
 var o_test = {
 
@@ -18,11 +18,9 @@ var o_test = {
     }
 }
 
-var o_test_evaluated = f_o_evaluated(o_test,o_test)
+f_evaluate_object(o_test,o_test)
 console.log("o_test")
 console.log(o_test)
-console.log("o_test_evaluated")
-console.log(o_test_evaluated)
 
 var o_test_with_function = {
     f_test: function(num){
@@ -32,9 +30,9 @@ var o_test_with_function = {
     n_twenty: "${f_test(n_ten)}"
 }
 
-var o_test_with_function_evaluated = f_o_evaluated(o_test_with_function,o_test_with_function)
+var o_test_with_function_evaluated = f_evaluate_object(o_test_with_function,o_test_with_function)
 
 console.log("o_test_with_function")
 console.log(o_test_with_function)
-console.log("o_test_with_function_evaluated")
-console.log(o_test_with_function_evaluated)
+
+

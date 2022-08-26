@@ -24,14 +24,14 @@ var f_s_evaluated = function(
     }
     var f_s_evaluate = new Function(
         ...a_s_param, s_function_body    
-    )        
+    )
     
     // var s_string_interpolated = f_s_evaluate(...Object.values(o_object))
     var s_string_interpolated = f_s_evaluate(...a_value_param)
     return s_string_interpolated
 }
 
-var f_o_evaluated = function(o_object, o_object_source){
+var f_evaluate_object = function(o_object, o_object_source){
     for(var s_prop_name in o_object){
 
         var value = o_object[s_prop_name]
@@ -48,7 +48,7 @@ var f_o_evaluated = function(o_object, o_object_source){
             value !== null //&&
             // !Array.isArray(value)
           ) {
-            o_object[s_prop_name_evaluated] = f_o_evaluated(value, o_object_source)
+            o_object[s_prop_name_evaluated] = f_evaluate_object(value, o_object_source)
         }else{
             var value_evaluated = f_s_evaluated(value, o_object_source)
             o_object[s_prop_name_evaluated] = value_evaluated
@@ -61,6 +61,7 @@ var f_o_evaluated = function(o_object, o_object_source){
     }
 
     return o_object
+
 }
 
-export {f_o_evaluated}
+export {f_evaluate_object}
